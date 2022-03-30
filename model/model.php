@@ -12,13 +12,18 @@ function newUser($username, $password)
     return $affectedLines;
 }
 
-function getConnection($username, $password)
+function getConnection($username)
 {
     $db = dbConnect();
-    $req = $db->prepare('SELECT * FROM users WHERE username = ? AND password = ?');
-    $req->execute(array($username, $password));
-    $user = $req->fetch();
-    return $user;
+    $req = $db->prepare('SELECT * FROM users WHERE username = ?');
+    $req->execute(array($username));
+
+    if ($req->rowCount() == 1) {
+        $user = $req->fetch();
+        return $user;
+    } else {
+        return false;
+    }
 }
 
 function getUser($username, $password)
@@ -39,11 +44,11 @@ function getUserNameById($id)
     return $user;
 }
 
-function getUserId($username, $password)
+function getUserByName($username)
 {
     $db = dbConnect();
-    $req = $db->prepare('SELECT id FROM users WHERE username = ? AND password = ?');
-    $req->execute(array($username, $password));
+    $req = $db->prepare('SELECT id, username, password FROM users WHERE username = ?');
+    $req->execute(array($username));
     $user = $req->fetch();
     return $user;
 }

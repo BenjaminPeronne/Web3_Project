@@ -44,6 +44,11 @@
                     <?= $info; ?>
                 </div>
             <?php endif; ?>
+            <?php if (isset($warning)) : ?>
+                <div class="text-center alert alert-warning">
+                    <?= $warning; ?>
+                </div>
+            <?php endif; ?>
             <form class="text-center mt-3">
                 <p class="mt-3">Vous avez déjà un compte ? <a href="index.php?action=connection">Connectez-vous </a></p>
             </form>
