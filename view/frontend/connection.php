@@ -1,66 +1,53 @@
 <?php $title = 'Connexion'; ?>
-
-<?php
-try {
-    if (isset($_POST['username']) && isset($_POST['password'])) {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-
-        // Create session for the user
-        $_SESSION['username'] = $username;
-        $_SESSION['password'] = $password;
-        $user = getConnection($username, $password);
-        if ($user) {
-            $_SESSION['user'] = $user;
-            $success = 'Vous êtes connecté';
-            // Wait 2 seconds before redirecting
-            header('Refresh: 2; URL=index.php?action=coffre');
-        } else {
-            $error = 'Identifiant ou mot de passe incorrect';
-        }
-    }
-} catch (Exception $e) {
-    echo 'Erreur : ' . $e->getMessage();
-    header('Location: index.php?action=404');
-}
-?>
+<?php $css_name_1 = 'main'; ?>
 
 <?php ob_start(); ?>
 
-<div class="container">
-    <div class="row justify-content-md-center">
-        <div class="col-md-6 col-md-offset-3">
-            <h1>Connexion</h1>
+<div class="limiter">
+    <div class="container-login">
+        <div class=".col-md-6 wrap-login w-35  p-3 p-b-90 p-t-50">
+            <form class="login-form validate-form" action="" method="POST">
+                <span class="login-form-title pb-2 mb-2">
+                    Connexion
+                </span>
+                <div class="wrap-input validate-input mb-2" data-validate="Username is required">
+                    <input class="input" type="text" name="username" placeholder="Username">
+                </div>
+
+                <div class="wrap-input validate-input mb-2" data-validate="Password is required">
+                    <input class="input" type="password" name="password" placeholder="Mot de passe">
+                </div>
+
+                <div class="container-confirm-form-btn mt-2">
+                    <button class="confirm-form-btn">
+                        Connexion
+                    </button>
+                </div>
+
+            </form>
             <?php if (isset($error)) : ?>
-                <div class="alert alert-danger">
+                <div class="text-center alert alert-danger">
                     <?= $error; ?>
                 </div>
             <?php endif; ?>
             <?php if (isset($success)) : ?>
-                <div class="alert alert-success">
+                <div class="text-center alert alert-success">
                     <?= $success; ?>
                 </div>
             <?php endif; ?>
-
-            <form action="" method="POST">
-                <div class="form-group">
-                    <label for="login">Login</label>
-                    <input type="text" id="login" name="username" class="form-control">
+            <?php if (isset($info)) : ?>
+                <div class="text-center alert alert-info">
+                    <?= $info; ?>
                 </div>
-                <div class="form-group">
-                    <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password" class="form-control">
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary mt-2 center">Connexion</button>
-                </div>
-            </form>
+            <?php endif; ?>
             <form class="text-center mt-3">
                 <p class="mt-3">Vous n'avez pas de compte ? <a href="index.php?action=register">Inscrivez-vous </a></p>
             </form>
+
         </div>
     </div>
 </div>
+
 
 <?php $content = ob_get_clean(); ?>
 

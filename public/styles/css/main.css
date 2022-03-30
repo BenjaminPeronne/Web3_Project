@@ -1,16 +1,147 @@
+/*===========[ FONT ]===========*/
+
+@font-face {
+    font-family: 'Roboto',
+        sans-serif;
+    src: url('../fonts/Roboto/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto',
+        sans-serif;
+    src: url('../fonts/Roboto/Roboto-Bold.ttf');
+    font-weight: bold;
+}
+
+/*===========[ RESTYLE TAG ]===========*/
+
 * {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
 }
 
 body,
 html {
-    width: 100%;
     height: 100%;
-    padding: 0.5em;    
+    font-family: Roboto, sans-serif;
 }
+
+/*---------------------------------------------*/
+a {
+    font-family: 'Roboto';
+    font-size: 14px;
+    line-height: 1.7;
+    color: #666666;
+    margin: 0px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+}
+
+a:focus {
+    outline: none !important;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #403866;
+}
+
+/*---------------------------------------------*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0px;
+}
+
+p {
+    font-family: 'Roboto';
+    font-size: 14px;
+    line-height: 1.7;
+    color: #666666;
+    margin: 0px;
+}
+
+ul,
+li {
+    margin: 0px;
+    list-style-type: none;
+}
+
+
+/*---------------------------------------------*/
+input {
+    outline: none;
+    border: none;
+}
+
+textarea {
+    outline: none;
+    border: none;
+}
+
+textarea:focus,
+input:focus {
+    border-color: transparent !important;
+}
+
+input::-webkit-input-placeholder {
+    color: #8f8fa1;
+}
+
+input:-moz-placeholder {
+    color: #8f8fa1;
+}
+
+input::-moz-placeholder {
+    color: #8f8fa1;
+}
+
+input:-ms-input-placeholder {
+    color: #8f8fa1;
+}
+
+textarea::-webkit-input-placeholder {
+    color: #8f8fa1;
+}
+
+textarea:-moz-placeholder {
+    color: #8f8fa1;
+}
+
+textarea::-moz-placeholder {
+    color: #8f8fa1;
+}
+
+textarea:-ms-input-placeholder {
+    color: #8f8fa1;
+}
+
+label {
+    display: block;
+    margin: 0;
+}
+
+/*---------------------------------------------*/
+button {
+    outline: none !important;
+    border: none;
+    background: transparent;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+iframe {
+    border: none !important;
+}
+
 
 .material-icons {
     float: left;
@@ -22,4 +153,188 @@ p,
 a {
     display: block;
     margin-top: 0.5rem;
+}
+
+/*===========[ login ]===========*/
+
+.limiter {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.container-login {
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    ;
+}
+
+
+.wrap-login {
+    width: 50%;
+    background: #fff;
+    border-radius: 10px;
+    position: relative;
+}
+
+/*===========[ Form  ]===========*/
+.login-form {
+    width: 100%;
+}
+
+.login-form-title {
+    font-family: 'Roboto';
+    font-size: 30px;
+    color: #403866;
+    line-height: 1.2;
+    text-transform: uppercase;
+    text-align: center;
+
+    width: 100%;
+    display: block;
+}
+
+/*===========[ Input ]===========*/
+.wrap-input {
+    width: 100%;
+    position: relative;
+    background-color: #e6e6e6;
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+
+
+/*---------------------------------------------*/
+.input {
+    font-family: 'Roboto';
+    font-size: bold;
+    color: #403866;
+    line-height: 1.2;
+    /* font-size: 18px; */
+
+    display: block;
+    width: 100%;
+    background: transparent;
+    height: 62px;
+    padding: 0 20px 0 38px;
+}
+
+
+/*===========[ Button ]===========*/
+.container-confirm-form-btn {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.confirm-form-btn {
+    font-family: 'Roboto';
+    font-size: bold;
+    color: #fff;
+    line-height: 1.2;
+    text-transform: uppercase;
+
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    height: 62px;
+    background-color: #827ffe;
+    border-radius: 3px;
+
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.confirm-form-btn:hover {
+    background-color: #403866;
+}
+
+/*===========[ alert-validate ]===========*/
+.shake:before {
+    animation: shake 0.5s;
+    animation-iteration-count: 0.5;
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+
+/*===========[  ]===========*/
+
+.p-b-90 {
+    padding-bottom: 90px;
+}
+
+
+.p-t-50 {
+    padding-top: 50px;
+}
+
+.w-35 {
+    width: 35%;
 }

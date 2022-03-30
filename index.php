@@ -11,7 +11,7 @@ try {
         } elseif ($_GET['action'] == 'coffre') {
             coffre();
         } elseif ($_GET['action'] == 'logout') {
-            // logout();
+            logout();
         } else {
             $_GET['action'] ?? '404';
             require('view/frontend/404.php');
