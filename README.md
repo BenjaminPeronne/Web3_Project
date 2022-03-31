@@ -18,6 +18,9 @@ Ce projet respect le modèle MVC, il est composé de 4 dossier :
 ```
 ---- Controllers 
 -------- controller.php 
+-------- controller_connection.php 
+-------- controller_register.php 
+-------- controller_chest.php 
 
 ---- Models
 -------- config
@@ -40,7 +43,13 @@ Ce projet respect le modèle MVC, il est composé de 4 dossier :
 ```
 
 ```
-controller.php : Contient les fonctions qui permettent de gérer les requêtes et la logique du site.
+controller.php : permet la route entre les différents controllers
+
+controller_connection.php : Contient les fonctions qui permettent de gérer la connexion d'un utilisateur.
+
+controller_register.php : Contient les fonctions qui permettent de gérer l'inscription d'un utilisateur.
+
+controller_chest.php : Contient les fonctions qui permettent de gérer le coffre fort.
 
 config.php : Contient les informations de connexion à la base de données.
 
