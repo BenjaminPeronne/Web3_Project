@@ -88,7 +88,7 @@ function chest()
 
     if (isset($_POST["submit"]) && !empty($_FILES["file"]["name"])) {
         // Allow certain file formats
-        $allowTypes = array('jpg', 'png', 'jpeg', 'gif', 'pdf');
+        $allowTypes = array('jpg', 'png', 'jpeg', 'gif', 'pdf', 'doc', 'docx', 'xls', 'xlsx');
         if (in_array($fileType, $allowTypes)) {
             // Upload file to server
             if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)) {
@@ -103,7 +103,7 @@ function chest()
                 $error = "Sorry, there was an error uploading your file.";
             }
         } else {
-            $error = 'Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.';
+            $error = 'Veuillez choisir un fichier de type jpg, png, jpeg, gif, pdf, doc, docx, xls, xlsx';
         }
     } else {
         $warning = 'Please select a file to upload.';
@@ -112,9 +112,6 @@ function chest()
     $link = getLink($_SESSION['id']);
 
     $_SESSION['link'] = $link;
-
-    // echo $link['link'];
-    // print_r($_SESSION['link'][0]);
 
     require('view/frontend/chest.php');
 }

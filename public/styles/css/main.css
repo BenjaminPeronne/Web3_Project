@@ -138,8 +138,6 @@ button:hover {
     cursor: pointer;
 }
 
-
-
 iframe {
     border: none !important;
 }
@@ -279,9 +277,11 @@ a {
     color: #25a5c4;
 }
 
-
 .input-file {
-    display: none;
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+
 }
 
 .confirm-form-btn:hover {
@@ -395,7 +395,7 @@ a {
 
 /*===========[  ]===========*/
 
-.flex-center{
+.flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
