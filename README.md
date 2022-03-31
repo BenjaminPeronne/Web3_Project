@@ -43,7 +43,7 @@ Ce projet respect le modèle MVC, il est composé de 4 dossier :
 ```
 
 ```
-controller.php : permet la route entre les différents controllers
+controller.php : Contrôle maître qui gère les différents contrôleurs.
 
 controller_connection.php : Contient les fonctions qui permettent de gérer la connexion d'un utilisateur.
 
@@ -55,7 +55,7 @@ config.php : Contient les informations de connexion à la base de données.
 
 model.php : Contient divers fonctions de création de requêtes SQL.
 
-index.php : Contient les fonctions qui permettent de gérer le template.
+index.php : Routeur qui affiche les différentes pages lors de la demande d'une page.
 
 template.php : Contient les bases HTML du site.
 ```

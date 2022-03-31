@@ -26,7 +26,7 @@ try {
         } else {
             $error = 'Veuillez choisir un fichier de type jpg, png, jpeg, gif, pdf, doc, docx, xls, xlsx';
         }
-    } else {
+    } elseif (isset($_POST["submit"]) && empty($_FILES["file"]["name"])) {
         $warning = 'Veuillez choisir un fichier';
     }
 
