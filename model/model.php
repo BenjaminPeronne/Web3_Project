@@ -2,7 +2,6 @@
 
 require_once('model/config/dbConfig.php');
 
-// insert new user into database
 function newUser($username, $password)
 {
     $db = dbConnect();
@@ -67,8 +66,6 @@ function getUserByName($username)
     return $user;
 }
 
-
-// update user link W
 function updateLink($link, $id)
 {
     $db = dbConnect();
@@ -78,13 +75,12 @@ function updateLink($link, $id)
     return $req;
 }
 
-
 function getLink($id)
 {
     $db = dbConnect();
     $req = $db->prepare('SELECT link FROM users WHERE id = ?');
     $req->execute(array($id));
     $link = $req->fetch();
-    
+
     return $link;
 }

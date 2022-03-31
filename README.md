@@ -10,7 +10,7 @@ __Objectif__ : Le but de ce projet est de créer un site web qui permettant de c
 
 __Résultat__ : Ce programme répond à l'objectif de créer un site web qui permettrait de créer un compte, de s'y connecter et de pouvoir y déposer un fichier et de le consulter.
 
-<a href="https://github.com/BenjaminPeronne/Web3_Project">Lien GitHub</a> | <a href="https://benjaminperonne.fr/src/digital_safe">Lien vers le site web projet</a> | <a href="https://github.com/BenjaminPeronne/Web3_Project/blob/main/Projet_programmation_WEB.pdf">Lien vers le PDF</a>
+<a href="https://github.com/BenjaminPeronne/Web3_Project">Lien GitHub</a> | <a href="https://coffre-fort.benjaminperonne.fr">Lien vers le site web projet</a> | <a href="https://github.com/BenjaminPeronne/Web3_Project/blob/main/Projet_programmation_WEB.pdf">Lien vers le PDF</a>
 
 ---
 
@@ -80,6 +80,17 @@ Validation of the form in `vue_coffre.php` must call on `controleur_coffre.php` 
 
 ## Database
 
+```sql
+CREATE TABLE users
+(
+  id                INT unsigned NOT NULL AUTO_INCREMENT,
+  username          VARCHAR(500) NOT NULL,               
+  password          VARCHAR(500) NOT NULL,                
+  link              VARCHAR(500) NULL,                
+  PRIMARY KEY       (id)                                  
+);
+```
+
 ```
 mysql> DESCRIBE users;
 +----------+--------------+------+-----+---------+----------------+
@@ -93,13 +104,13 @@ mysql> DESCRIBE users;
 4 rows in set (0,01 sec)
 ```
 
-```sql
-CREATE TABLE users
-(
-  id                INT unsigned NOT NULL AUTO_INCREMENT,
-  username          VARCHAR(500) NOT NULL,               
-  password          VARCHAR(500) NOT NULL,                
-  link              VARCHAR(500) NOT NULL,                
-  PRIMARY KEY       (id)                                  
-);
+```
+mysql> select * from users;
++----+------------------+--------------------------------------------------------------+-------------------------------------------+
+| id | username         | password                                                     | link                                      |
++----+------------------+--------------------------------------------------------------+-------------------------------------------+
+|  1 | BenjaminPeronne  | $2y$10$oi4xB3zRNahiDFh0EHy4GOGK4cidyYslW16II9xzxddkKIDc6Ojg6 | lucas-andrade-RLDdF4L33yE-unsplash.jpg    |
+|  3 | AymerickLauretta | $2y$10$W1uNfPrY2b3vruURKf6b/elaaIdAFy9eFRLuxLovhzUOHzdpr2Sjq | francesco-liotti-4c-WqLMz118-unsplash.jpg |
++----+------------------+--------------------------------------------------------------+-------------------------------------------+
+2 rows in set (0,00 sec)
 ```
