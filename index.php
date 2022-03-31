@@ -9,7 +9,7 @@ try {
         } elseif ($_GET['action'] == 'register') {
             register();
         } elseif ($_GET['action'] == 'coffre') {
-            coffre();
+            chest();
         } elseif ($_GET['action'] == 'logout') {
             logout();
         } else {

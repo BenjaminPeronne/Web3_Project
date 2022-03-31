@@ -26,6 +26,20 @@ function getConnection($username)
     }
 }
 
+function getAllLinksOfUser($id)
+{
+    $db = dbConnect();
+    $req = $db->prepare('SELECT * FROM links WHERE id_user = ?');
+    $req->execute(array($id));
+
+    if ($req->rowCount() > 0) {
+        $links = $req->fetchAll();
+        return $links;
+    } else {
+        return false;
+    }
+}
+
 function getUser($username, $password)
 {
     $db = dbConnect();
@@ -51,4 +65,26 @@ function getUserByName($username)
     $req->execute(array($username));
     $user = $req->fetch();
     return $user;
+}
+
+
+// update user link W
+function updateLink($link, $id)
+{
+    $db = dbConnect();
+    $req = $db->prepare('UPDATE users SET link = ? WHERE id = ?');
+    $req->execute(array($link, $id));
+
+    return $req;
+}
+
+
+function getLink($id)
+{
+    $db = dbConnect();
+    $req = $db->prepare('SELECT link FROM users WHERE id = ?');
+    $req->execute(array($id));
+    $link = $req->fetch();
+    
+    return $link;
 }

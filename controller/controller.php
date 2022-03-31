@@ -19,6 +19,7 @@ function connection()
                 if (password_verify($password, $connection['password'])) {
                     $_SESSION['username'] = $username;
                     $_SESSION['password'] = $password;
+                    $_SESSION['id'] = $connection['id'];
                     $connection = getConnection($username, $password);
 
                     $_SESSION['user'] = $connection;
@@ -77,8 +78,44 @@ function register()
     require('view/frontend/register.php');
 }
 
-function coffre()
+function chest()
 {
+    // File upload path
+    $targetDir = "public/uploads/";
+    $fileName = basename($_FILES["file"]["name"]);
+    $targetFilePath = $targetDir . $fileName;
+    $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
+
+    if (isset($_POST["submit"]) && !empty($_FILES["file"]["name"])) {
+        // Allow certain file formats
+        $allowTypes = array('jpg', 'png', 'jpeg', 'gif', 'pdf');
+        if (in_array($fileType, $allowTypes)) {
+            // Upload file to server
+            if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)) {
+                // Insert image file name into database
+                $insert = updateLink($fileName, $_SESSION['id']);
+                if ($insert) {
+                    $success = "The file " . $fileName . " has been uploaded successfully.";
+                } else {
+                    $error = "File upload failed, please try again.";
+                }
+            } else {
+                $error = "Sorry, there was an error uploading your file.";
+            }
+        } else {
+            $error = 'Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.';
+        }
+    } else {
+        $warning = 'Please select a file to upload.';
+    }
+
+    $link = getLink($_SESSION['id']);
+
+    $_SESSION['link'] = $link;
+
+    // echo $link['link'];
+    // print_r($_SESSION['link'][0]);
+
     require('view/frontend/chest.php');
 }
 

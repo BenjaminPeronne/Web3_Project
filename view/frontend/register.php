@@ -1,5 +1,5 @@
 <?php $title = 'Inscription'; ?>
-<?php $css_name_1 = 'main'; ?>
+<?php $css_name = 'main'; ?>
 
 <?php ob_start(); ?>
 
