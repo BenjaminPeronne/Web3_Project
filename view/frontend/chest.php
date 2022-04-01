@@ -18,7 +18,7 @@ $css_name = 'main';
                             <input id="file" class="input-file" type="file" name="file">
                             <label for="file" class="label-file">Cliquer ici pour choisir votre fichier</label>
                         </div>
-                    </div>                    
+                    </div>
                     <button type="submit" class="btn btn-primary mt-1 w-100" name="submit">Cliquer ici pour mettre votre fichier dans le coffre</button>
                 </form>
 
@@ -43,8 +43,10 @@ $css_name = 'main';
                     </div>
                 <?php endif; ?>
 
-                <a href="public/uploads/<?= $_SESSION['link'][0] ?>" target="_blank" rel="noopener noreferrer">Votre fichier</a>
-
+                <?php if (isset($_SESSION['link'][0])) : ?>
+                    <a href="public/uploads/<?= $_SESSION['link'][0] ?>" target="_blank" rel="noopener noreferrer">Votre fichier</a>
+                <?php endif; ?>
+                
                 <form action="index.php?action=logout" method="POST">
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary mt-2 center">Déconnexion</button>
