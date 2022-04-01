@@ -18,7 +18,7 @@ $css_name = 'main';
                             <input id="file" class="input-file" type="file" name="file">
                             <label for="file" class="label-file">Cliquer ici pour choisir votre fichier</label>
                         </div>
-                    </div>
+                    </div>                    
                     <button type="submit" class="btn btn-primary mt-1 w-100" name="submit">Cliquer ici pour mettre votre fichier dans le coffre</button>
                 </form>
 

@@ -1,6 +1,4 @@
 <?php
-// $register = newUser($_POST['username'], $_POST['password']);
-// $getUserForCheck = getUser($_POST['username'], $_POST['password']);
 
 try {
     if (isset($_POST['username']) && isset($_POST['password'])) {
@@ -10,10 +8,11 @@ try {
             $username = $_POST['username'];
             $password = $_POST['password'];
 
-            $getUserForCheck = getUser($username, $password);
+            // $getUserForCheck = getUser($username, $password);
+            $getUserByNameForCheck = getUserByName($username);
 
-            if ($getUserForCheck) {
-                $error = 'Ce compte existe déjà';
+            if ($getUserByNameForCheck['username'] === $username) {
+                $error = 'Cette identifiant est déjà utilisé';
             } elseif ($_POST['password'] != $_POST['password_confirm']) {
                 $warning = 'Les mots de passe ne correspondent pas';
             } else {
